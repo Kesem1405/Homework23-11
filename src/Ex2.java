@@ -11,13 +11,17 @@ public class Ex2 {
 
     public static String phoneNumberFixer(String phoneNumber) {
         int hyphen = phoneNumber.charAt(3);
+
         if (phoneNumber.length() >= 10 && phoneNumber.length() <= 12) {
             if (phoneNumber.length() == 10) {
                 System.out.println(phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3));
             } else if (hyphen == '-' && phoneNumber.length() == 11) {
                 System.out.println(phoneNumber);
-            } else if (phoneNumber.length() == 12 && phoneNumber.contains("972")) {
-                System.out.println("0" + phoneNumber.substring(3, 5) + "-" + phoneNumber.substring(5, 12));
+            } else if (phoneNumber.length() == 12) {
+                String cut = phoneNumber.substring(0, 3);
+                if (cut.contains("972")) {
+                    System.out.println("0" + phoneNumber.substring(3, 5) + "-" + phoneNumber.substring(5, 12));
+                }
             }
         } else {
             phoneNumber = "";
